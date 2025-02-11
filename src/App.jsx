@@ -1,10 +1,12 @@
-import { useState } from "react";
-import "./App.css";
+// import { useState } from "react";
+import Navbar from "./components/Navbar/Navbar";
+import { Outlet } from "react-router";
 
 function App() {
   return (
     <>
-      <p>hello</p>
+      <Navbar />
+      <Outlet />
     </>
   );
 }

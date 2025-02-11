@@ -1,0 +1,38 @@
+.header {
+  background-color: rgb(30, 30, 65);
+  padding: 10px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.h1 {
+  color: white;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav {
+  margin-left: auto;
+}
+
+.ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.li {
+  color: pink;
+  transition: color ease 0.3s;
+}
+
+.li:hover {
+  color: red;
+}
+
+/* .li {
+  background-color: pink;
+} */

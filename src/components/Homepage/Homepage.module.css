@@ -1,0 +1,15 @@
+.main {
+  padding: 10px 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.ul {
+  list-style: none;
+}
+
+.li::before {
+  content: "✅";
+}
