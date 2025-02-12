@@ -27,6 +27,7 @@
 .li {
   color: pink;
   transition: color ease 0.3s;
+  font-size: 1.6rem;
 }
 
 .li:hover {
@@ -36,3 +37,27 @@
 /* .li {
   background-color: pink;
 } */
+
+.cart {
+  height: auto;
+  width: 30px;
+  filter: invert(1);
+  margin-left: 5px;
+  position: relative;
+  top: 2px;
+}
+
+.cart:hover {
+  filter: invert(0.8);
+}
+.cartQty {
+  color: white;
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-size: 0.8rem;
+  background-color: orchid;
+  border-radius: 50%;
+  padding: 3px 5px;
+  min-width: 20px;
+}

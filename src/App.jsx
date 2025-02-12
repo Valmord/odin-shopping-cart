@@ -2,6 +2,7 @@
 import Navbar from "./components/Navbar/Navbar";
 import { Outlet } from "react-router";
 import { useEffect, useState } from "react";
+import CartProvider from "./components/CartContext";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -34,8 +35,10 @@ function App() {
 
   return (
     <>
-      <Navbar />
-      <Outlet context={{ loading, error, products }} />
+      <CartProvider>
+        <Navbar />
+        <Outlet context={{ loading, error, products }} />
+      </CartProvider>
     </>
   );
 }

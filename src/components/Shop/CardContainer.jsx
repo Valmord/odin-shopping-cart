@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Card from "./Card";
 
 const StyledSection = styled.section`
-  padding: 3%;
+  padding: 15px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   row-gap: 30px;

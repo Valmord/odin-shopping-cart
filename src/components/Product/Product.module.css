@@ -1,0 +1,29 @@
+.container {
+  position: relative;
+}
+
+.select {
+  margin: 0 10px;
+}
+
+.addtocart {
+  display: block;
+  appearance: none;
+  color: white;
+  background-color: blueviolet;
+  border-radius: 12px;
+  padding: 8px;
+  margin-top: 10px;
+}
+
+.addtocart:hover {
+  color: black;
+  background: lightpink;
+  cursor: pointer;
+}
+
+.addtocart:active {
+  position: relative;
+  top: 2px;
+  background-color: orange;
+}

@@ -41,11 +41,18 @@ const StyledCost = styled.p`
   margin-top: auto;
 `;
 
+const StyledLink = styled(Link)`
+  all: unset;
+  display: contents;
+  cursor: pointer;
+`;
+
 const Card = function Card({ data }) {
   return (
     <StyledCard className="card">
-      <Link to={`../product/${data.id}`}>Go to product page</Link>
-      <StyledImg src={data.image} alt="card image"></StyledImg>
+      <StyledLink to={`../product/${data.id}`}>
+        <StyledImg src={data.image} alt="card image"></StyledImg>
+      </StyledLink>
       <StyledBody className="card-body">
         <StyledTitle>{data.title}</StyledTitle>
         <StyledCost>{`Price: $${data.price.toFixed(2)}`}</StyledCost>
