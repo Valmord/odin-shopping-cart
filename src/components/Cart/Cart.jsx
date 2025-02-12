@@ -2,10 +2,13 @@ import { useContext } from "react";
 import { Link, useOutletContext } from "react-router";
 import { CartContext } from "../CartContext";
 import CartItem from "./CartItem";
+import styles from "./Cart.module.css";
 
 const Cart = function Cart() {
-  const { loading, error, products } = useOutletContext();
-  const { cart } = useContext(CartContext);
+  const { loading, error } = useOutletContext();
+  const { cart, getTotal, updateCart } = useContext(CartContext);
+
+  const total = getTotal();
 
   console.log("Cart", cart);
 
@@ -13,16 +16,20 @@ const Cart = function Cart() {
   if (error)
     return (
       <main>
-        Error occured<Link to="/">Return to Home?</Link>
+        Error occurred<Link to="/">Return to Home?</Link>
       </main>
     );
 
   return (
-    <main>
-      <h2>My Cart</h2>
+    <main className={styles.main}>
+      <h2>
+        My Cart {+total > 0 && <small> | Total: ${total.toFixed(2)}</small>}
+      </h2>
+
       {cart.map((item) => (
-        <CartItem item={item} key={item.id} />
+        <CartItem item={item} key={item.id} updateCart={updateCart} />
       ))}
+      {+total > 0 && <h4>Total: ${total.toFixed(2)}</h4>}
     </main>
   );
 };

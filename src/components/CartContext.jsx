@@ -5,18 +5,28 @@ export const CartContext = createContext();
 
 const CartProvider = function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
-  console.log(cart);
 
-  const updateCart = function updateCart(item, quantity) {
-    if (cart.find((cartItem) => cartItem === item)) {
-      setCart((oldCart) =>
-        oldCart.map((cartItem) => {
-          if (cartItem === item) {
-            return { item, quantity: cartItem.quantity + quantity };
-          }
-          return { item, quantity };
-        })
-      );
+  const updateCart = function updateCart(item, quantity, mode = "add") {
+    if (cart.find((cartItem) => cartItem.item.id === item.id)) {
+      if (mode === "add") {
+        setCart((oldCart) =>
+          oldCart.map((cartItem) => {
+            if (cartItem.item.id === item.id) {
+              return { item, quantity: cartItem.quantity + quantity };
+            }
+            return cartItem;
+          })
+        );
+      } else {
+        setCart((oldCart) =>
+          oldCart.map((cartItem) => {
+            if (cartItem.item.id === item.id) {
+              return { item, quantity };
+            }
+            return cartItem;
+          })
+        );
+      }
     } else {
       setCart((oldCart) => [...oldCart, { item, quantity }]);
     }
@@ -26,8 +36,15 @@ const CartProvider = function CartProvider({ children }) {
     return cart.reduce((acc, currentItem) => acc + currentItem.quantity, 0);
   };
 
+  const getTotal = function getTotal() {
+    return cart.reduce(
+      (acc, currentItem) => acc + currentItem.quantity * currentItem.item.price,
+      0
+    );
+  };
+
   return (
-    <CartContext.Provider value={{ cart, getCartQty, updateCart }}>
+    <CartContext.Provider value={{ cart, getCartQty, getTotal, updateCart }}>
       {children}
     </CartContext.Provider>
   );

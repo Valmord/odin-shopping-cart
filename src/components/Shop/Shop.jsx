@@ -6,7 +6,7 @@ const Shop = function Shop() {
   const { loading, error, products } = useOutletContext();
 
   if (loading) return <main>Loading.....</main>;
-  if (error) return <main>A network error occured</main>;
+  if (error) return <main>A network error occurred</main>;
 
   return (
     <main>
