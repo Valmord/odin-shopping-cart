@@ -2,6 +2,8 @@ import App from "./App";
 import Cart from "./components/Cart/Cart";
 import HomePage from "./components/Homepage/Homepage";
 import Shop from "./components/Shop/Shop";
+import ErrorPage from "./components/ErrorPage";
+import Product from "./components/Product/Product";
 
 // To Implement ErrorPage from ./ErrorPage
 // errorElement: <ErrorPage />
@@ -10,7 +12,7 @@ const routes = [
   {
     path: "/",
     element: <App />,
-    // errorElement: <ErrorPage />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -23,6 +25,10 @@ const routes = [
       {
         path: "cart",
         element: <Cart />,
+      },
+      {
+        path: "product/:id",
+        element: <Product />,
       },
     ],
   },

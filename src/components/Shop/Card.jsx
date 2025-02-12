@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router";
 import styled from "styled-components";
 
 const StyledCard = styled("div")`
@@ -26,6 +27,7 @@ const StyledBody = styled.div`
 
 const StyledTitle = styled.h3`
   height: 60px;
+  // from Chad PeTe
   display: -webkit-box;
   -webkit-box-orient: vertical; /* Makes the box behave as a multi-line flex container */
   -webkit-line-clamp: 2; /* Limits the text to two lines */
@@ -42,7 +44,8 @@ const StyledCost = styled.p`
 const Card = function Card({ data }) {
   return (
     <StyledCard className="card">
-      <StyledImg src={data.image} alt="card image" />
+      <Link to={`../product/${data.id}`}>Go to product page</Link>
+      <StyledImg src={data.image} alt="card image"></StyledImg>
       <StyledBody className="card-body">
         <StyledTitle>{data.title}</StyledTitle>
         <StyledCost>{`Price: $${data.price.toFixed(2)}`}</StyledCost>
