@@ -43,8 +43,16 @@ const CartProvider = function CartProvider({ children }) {
     );
   };
 
+  const deleteCartItem = function deleteCartItem(item) {
+    setCart((oldCart) =>
+      oldCart.filter((cartItem) => cartItem.item.id !== item.id)
+    );
+  };
+
   return (
-    <CartContext.Provider value={{ cart, getCartQty, getTotal, updateCart }}>
+    <CartContext.Provider
+      value={{ cart, getCartQty, getTotal, updateCart, deleteCartItem }}
+    >
       {children}
     </CartContext.Provider>
   );

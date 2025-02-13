@@ -6,7 +6,8 @@ import styles from "./Cart.module.css";
 
 const Cart = function Cart() {
   const { loading, error } = useOutletContext();
-  const { cart, getTotal, updateCart } = useContext(CartContext);
+  const { cart, getTotal, updateCart, deleteCartItem } =
+    useContext(CartContext);
 
   const total = getTotal();
 
@@ -27,7 +28,12 @@ const Cart = function Cart() {
       </h2>
 
       {cart.map((item) => (
-        <CartItem item={item} key={item.id} updateCart={updateCart} />
+        <CartItem
+          item={item}
+          key={item.id}
+          updateCart={updateCart}
+          deleteCartItem={deleteCartItem}
+        />
       ))}
       {+total > 0 && <h4>Total: ${total.toFixed(2)}</h4>}
     </main>

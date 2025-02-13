@@ -6,14 +6,14 @@
   border-radius: 30px;
   object-fit: cover;
   overflow: hidden;
-  background-color: palevioletred;
+  background-color: rgb(180, 180, 230);
   padding-right: 25px;
 
   & img {
-    max-height: 9999px;
+    max-height: 600px;
     width: 300px;
     object-fit: cover;
-    transition: max-height 0.5s ease-in;
+    transition: max-height ease-in 0.5s 0.3s;
   }
 
   & img:not(:hover) {
@@ -64,4 +64,14 @@
   max-width: 50px;
   font-weight: bold;
   font-size: 1rem;
+}
+
+.linkbtn {
+  line-height: 0;
+}
+
+.linkbtn img {
+  position: relative;
+  padding-bottom: -50px;
+  cursor: pointer;
 }

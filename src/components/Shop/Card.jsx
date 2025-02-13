@@ -5,19 +5,28 @@ import styled from "styled-components";
 import { CartContext } from "../CartContext";
 
 const StyledCard = styled("div")`
+  --card-color: rgb(180, 180, 230);
+  --primary-color: #852bd9;
+  --secondary-color: #b58bdc;
   display: flex;
   flex-direction: column;
-  background-color: rgb(180, 180, 230);
+  background-color: var(--card-color);
   gap: 10px;
   color: black;
   border-radius: 24px;
   overflow: hidden;
+  box-shadow: 0px 2px 8px 5px rgba(0, 0, 0, 0.25);
 `;
 
 const StyledImg = styled.img`
-  height: 300px;
+  max-height: 300px;
   width: auto;
   object-fit: cover;
+  transition: max-height ease-in 0.5s 0.3s;
+
+  &:hover {
+    max-height: 500px;
+  }
 `;
 
 const StyledBody = styled.div`
@@ -55,14 +64,14 @@ const StyledSelect = styled.select`
 
   padding: 2px 6px;
   color: white;
-  background-color: blueviolet;
+  background-color: var(--primary-color);
   border-radius: 12px;
   padding: 8px;
   margin-top: 10px;
 
   &:hover {
     color: black;
-    background: lightpink;
+    background: var(--secondary-color);
     cursor: pointer;
   }
 `;
@@ -71,14 +80,14 @@ const StyledBtn = styled.button`
   padding: 2px 6px;
   appearance: none;
   color: white;
-  background-color: blueviolet;
+  background-color: var(--primary-color);
   border-radius: 12px;
   padding: 8px;
   margin-top: 10px;
 
   &:hover {
     color: black;
-    background: lightpink;
+    background: var(--secondary-color);
     cursor: pointer;
   }
 

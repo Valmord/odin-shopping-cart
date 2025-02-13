@@ -10,7 +10,7 @@ const Shop = function Shop() {
 
   return (
     <main>
-      <h2>Welcome to the shop!</h2>
+      <h2>Store products:</h2>
       <CardContainer cards={products}></CardContainer>
     </main>
   );
