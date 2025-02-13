@@ -3,4 +3,26 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
+
+  --primary-color: #852bd9;
+  --secondary-color: #b58bdc;
+}
+
+.checkout-btn {
+  background-color: var(--primary-color);
+  padding: 4px 10px;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  margin-left: 20px;
+  font-size: 1.2rem;
+
+  &:hover {
+    background-color: var(--secondary-color);
+    color: black;
+  }
+}
+
+.end-container {
+  display: flex;
 }

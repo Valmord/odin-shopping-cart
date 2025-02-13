@@ -11,8 +11,6 @@ const Cart = function Cart() {
 
   const total = getTotal();
 
-  console.log("Cart", cart);
-
   if (loading) return <main>Loading...</main>;
   if (error)
     return (
@@ -21,10 +19,17 @@ const Cart = function Cart() {
       </main>
     );
 
+  const handleClick = function handleClick() {
+    alert("Feature not implement, thanks for using Shop534432!");
+  };
+
   return (
     <main className={styles.main}>
       <h2>
         My Cart {+total > 0 && <small> | Total: ${total.toFixed(2)}</small>}
+        <button className={styles["checkout-btn"]} onClick={handleClick}>
+          Checkout{" "}
+        </button>
       </h2>
 
       {cart.map((item) => (
@@ -35,7 +40,13 @@ const Cart = function Cart() {
           deleteCartItem={deleteCartItem}
         />
       ))}
-      {+total > 0 && <h4>Total: ${total.toFixed(2)}</h4>}
+
+      <div className={styles["end-container"]}>
+        {+total > 0 && <h4>Total: ${total.toFixed(2)}</h4>}
+        <button className={styles["checkout-btn"]} onClick={handleClick}>
+          Checkout{" "}
+        </button>
+      </div>
     </main>
   );
 };
